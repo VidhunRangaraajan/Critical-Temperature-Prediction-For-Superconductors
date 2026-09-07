@@ -41,9 +41,12 @@ for name, model in models.items():
     print(f"Training {name}...")# Displays the name of the model being trained in the terminal.
     model.fit(x_train_s, y_train)
     
+    # Saving the model parameters for the large models as github does not allow files greater than 100MB to be uploaded.
     if name in ["ExtraTreesRegressor","RandomForestRegressor"]:
         params = model.get_params()
         joblib.dump(params, f"results/{name}_params.joblib")
+    
+    # Saving the trained model.
     else:
         # Saving the trained model.
         joblib.dump(model, f"results/{name}.joblib")
