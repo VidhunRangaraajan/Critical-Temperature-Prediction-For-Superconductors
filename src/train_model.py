@@ -19,7 +19,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import ExtraTreesRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.neighbors import KNeighborsRegressor
-from joblib import dump
+import joblib
 
 # Loading the training datasets.
 x_train_s = pd.read_csv("data/x_train_s.csv")
@@ -41,5 +41,9 @@ for name, model in models.items():
     print(f"Training {name}...")# Displays the name of the model being trained in the terminal.
     model.fit(x_train_s, y_train)
     
-    # Saving the trained model.
-    dump(model, f"results/{name}.joblib")
+    if name in ["ExtraTreesRegressor","RandomForestRegressor"]:
+        params = model.get_params()
+        joblib.dump(params, f"results/{name}_params.joblib")
+    else:
+        # Saving the trained model.
+        joblib.dump(model, f"results/{name}.joblib")
