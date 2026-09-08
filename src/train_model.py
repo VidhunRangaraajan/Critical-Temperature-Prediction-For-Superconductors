@@ -43,8 +43,8 @@ for name, model in models.items():
     
     # Saving the model parameters for the large models as github does not allow files greater than 100MB to be uploaded.
     if name in ["ExtraTreesRegressor","RandomForestRegressor"]:
-        params = model.get_params()
-        joblib.dump(params, f"results/{name}_params.joblib")
+        params = {"hyperparams": model.get_params(),"estimators": model.estimators_,"feature_importances": getattr(model, "feature_importances_", None)}
+        joblib.dump(params, f"results/{name}_params.joblib", compress=3)
     
     # Saving the trained model.
     else:
