@@ -1,16 +1,16 @@
 # evaluate.py
-# Description: 
+# Description: Takes evaluation metrics and correlation heatmap of the trained models and mean of the predictions and saves it in a CSV file and PNG files.
 # Author: Vidhun Rangaraajan J
 # Website: https://www.vidhun.com
 # Github: https://github.com/VidhunRangaraajan
 # Repository: https://github.com/VidhunRangaraajan/Critical-Temperature-Prediction-For-Superconductors
-# Requirements: 
-# Usage: 
-# Depends On: 
-# Input Files: 
-# Output Files: 
-# Notes: 
-# To Do: 
+# Requirements: pandas, numpy, Scikit-learn, Joblib, Matplotlib, Seaborn.
+# Usage: To evaluate the performance of the trained models.
+# Depends On: -
+# Input Files: data/cleaned_critical_temp.csv, data/x_test_s.csv, data/y_test.csv, results/y_mean.csv, results/ExtraTreesRegressor_params.joblib, results/RandomForestRegressor_params.joblib, results/KNeighborsRegressor.joblib, results/DecisionTreeRegressor.joblib, results/GradientBoostingRegressor.joblib
+# Output Files: results/metrics.csv, results/correlation_heatmap.png
+# Notes: Run the preprocessing.py, followed by train_model.py and find_mean_of_predicted.py first.
+# To Do: -
 
 # Importing necessary libraries.
 import pandas as pd
@@ -60,14 +60,14 @@ for file in files:
         elif model_name == "ExtraTreesRegressor":
             _model = ExtraTreesRegressor(**models[model_name]["hyperparams"])
 
-        # Attach the trained estimators
+        # Attaching the trained estimators.
         _model.estimators_ = models[model_name]["estimators"]
         
         # Adding the number of outputs and number of features in the rebuilt model.
         _model.n_outputs_ = 1
         _model.n_features_in_ = 81
 
-        # Save the model like the other models in the dictionary.
+        # Saving the model like the other models in the dictionary.
         models[model_name] = _model
     
 # Function to return the predictions of the loaded model which is given in parameters.
@@ -92,7 +92,7 @@ for name, model in models.items():
 # Printing the name of the model being evaluated.
 print("Evaluating mean of predictions...")
 
-# Taking evaluation metrics.
+# Taking evaluation metrics for mean of the predictions.
 rmse = np.sqrt(mean_squared_error(y_test, y_mean))
 mae = mean_absolute_error(y_test, y_mean)
 r2 = r2_score(y_test, y_mean)
