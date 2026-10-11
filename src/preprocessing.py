@@ -1,16 +1,16 @@
 # preprocessing.py
-# Description: 
+# Description: Droped the duplicates and splited the data into test and training data sets. 
 # Author: Vidhun Rangaraajan J
 # Website: https://www.vidhun.com
 # Github: https://github.com/VidhunRangaraajan
 # Repository: https://github.com/VidhunRangaraajan/Critical-Temperature-Prediction-For-Superconductors
-# Requirements: 
-# Usage: 
-# Depends On: 
-# Input Files: 
-# Output Files: 
-# Notes: 
-# To Do: 
+# Requirements: Pandas, Scikit-learn, Joblib.
+# Usage: To clean the data and split it into training and testing sets.
+# Depends On: -
+# Input Files: data/critical_temp.csv
+# Output Files: data/scaler.joblib, data/cleaned_critical_temp.csv, data/x_train_s.csv, data/x_test_s.csv, data/y_train.csv, data/y_test.csv
+# Notes: Requires the critical_temp.csv file to be present in the data folder.
+# To Do: -
 
 # Importing required libraries.
 import pandas as pd
