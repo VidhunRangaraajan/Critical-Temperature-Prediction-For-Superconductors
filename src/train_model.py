@@ -1,16 +1,16 @@
 # train_model.py
-# Description: 
+# Description: Training 5 regression models from training dataset and saving the models.
 # Author: Vidhun Rangaraajan J
 # Website: https://www.vidhun.com
 # Github: https://github.com/VidhunRangaraajan
 # Repository: https://github.com/VidhunRangaraajan/Critical-Temperature-Prediction-For-Superconductors
-# Requirements: 
-# Usage: 
-# Depends On: 
-# Input Files: 
-# Output Files: 
-# Notes: 
-# To Do: 
+# Requirements: pandas, Scikit-learn, Joblib.
+# Usage: To train 5 different models.
+# Depends On: -
+# Input Files: data/x_train_s.csv, data/y_train.csv
+# Output Files: results/ExtraTreesRegressor_params.joblib, results/RandomForestRegressor_params.joblib, results/KNeighborsRegressor.joblib, results/DecisionTreeRegressor.joblib, results/GradientBoostingRegressor.joblib
+# Notes: Run the preprocessing.py first. 
+# To Do: -
 
 # Importing required libraries.
 import pandas as pd
