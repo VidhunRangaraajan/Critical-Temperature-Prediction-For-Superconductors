@@ -1,16 +1,16 @@
-# predict.py
-# Description: 
+# test.py
+# Description: This file is used to test the predict_mean function from the src/predict module.
 # Author: Vidhun Rangaraajan J
 # Website: https://www.vidhun.com
 # Github: https://github.com/VidhunRangaraajan
 # Repository: https://github.com/VidhunRangaraajan/Critical-Temperature-Prediction-For-Superconductors
-# Requirements: 
-# Usage: 
-# Depends On: 
-# Input Files: 
-# Output Files: 
-# Notes: 
-# To Do: 
+# Requirements: None directly(uses predict_mean function from src/predict.py).
+# Usage: To check the functionality of the predict_mean function with sample inputs from out of the file.
+# Depends On: src/predict.py
+# Input Files: -
+# Output Files: -
+# Notes: -
+# To Do: -
 
 # Importing the predict_mode function from the "src/predict.py" module/file.
 from src.predict import predict_mean
